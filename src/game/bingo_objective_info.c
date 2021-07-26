@@ -64,6 +64,10 @@ ALIGNED8 static const u8 seg2_texture_red_coin[] = {
 #include "textures/segment2/custom/segment2.redcoin.rgba16.inc.c"
 };
 
+ALIGNED8 static const u8 seg2_texture_blue_coin[] = {
+#include "textures/segment2/custom/segment2.bluecoin.rgba16.inc.c"
+};
+
 ALIGNED8 static const u8 seg2_texture_signpost[] = {
 #include "textures/segment2/custom/segment2.signpost.rgba16.inc.c"
 };
@@ -155,6 +159,7 @@ struct BingoObjectiveInfo sBingoObjectiveInfo[] = {
     { BINGO_OBJECTIVE_SIGNPOST, BINGO_ICON_SIGNPOST, { TEXT_SIGNPOSTS }, seg2_texture_signpost },
     { BINGO_OBJECTIVE_POLES, BINGO_ICON_POLE, { TEXT_POLES }, seg2_texture_pole},
     { BINGO_OBJECTIVE_RED_COIN, BINGO_ICON_RED_COIN, { TEXT_RED_COINS }, seg2_texture_red_coin },
+    { BINGO_OBJECTIVE_BLUE_COIN, BINGO_ICON_BLUE_COIN, { TEXT_BLUE_COINS }, seg2_texture_blue_coin },
     { BINGO_OBJECTIVE_EXCLAMATION_MARK_BOX, BINGO_ICON_EXCLAMATION_MARK_BOX, { TEXT_EXCLAM_BOXES }, seg2_texture_yellowbox },
     { BINGO_OBJECTIVE_WING_CAP_BOX, BINGO_ICON_WING_CAP_BOX, { TEXT_WING_BOXES }, seg2_texture_wingbox },
     { BINGO_OBJECTIVE_VANISH_CAP_BOX, BINGO_ICON_VANISH_CAP_BOX, { TEXT_VANISH_BOXES }, seg2_texture_vanishbox },
