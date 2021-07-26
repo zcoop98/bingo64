@@ -239,6 +239,8 @@ void ActionCoinInsideBoo0(void) {
     if (o->oTimer == 0 && gCurrLevelNum == LEVEL_BBH) {
         obj_set_model(MODEL_BLUE_COIN);
         obj_scale(0.7);
+        // Initialize coin's bingoId
+        o->oBingoId = get_unique_id(BINGO_UPDATE_BLUE_COIN, o->oPosX, o->oPosY, o->oPosZ);
     }
     copy_object_pos(o, parent);
     if (parent->oBooDeathStatus == BOO_DEATH_STATUS_DYING) {
