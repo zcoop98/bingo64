@@ -494,7 +494,7 @@ void get_collectable_objective_desc(struct BingoObjective *obj, char *desc) {
         case BINGO_OBJECTIVE_RED_COIN:
             strcpy(collectName, "Red Coins");
             break;
-        case BINGO_OBJECTIVE_BLUe_COIN:
+        case BINGO_OBJECTIVE_BLUE_COIN:
             strcpy(collectName, "Blue Coins");
             break;
         case BINGO_OBJECTIVE_AMPS:
