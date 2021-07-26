@@ -101,6 +101,7 @@ void bhv_moving_blue_coin_init(void) {
     o->oBuoyancy = 1.5f;
 
     set_object_hitbox(o, &sMovingBlueCoinHitbox);
+    o->oBingoId = get_unique_id(BINGO_UPDATE_BLUE_COIN, o->oPosX, o->oPosY, o->oPosZ);
 }
 
 void bhv_moving_blue_coin_loop(void) {
@@ -137,7 +138,10 @@ void bhv_moving_blue_coin_loop(void) {
     {
         CoinCollected();
         o->oInteractStatus = 0;
+        if (is_new_kill(BINGO_UPDATE_BLUE_COIN, o->oBingoId)) {
+            bingo_update(BINGO_UPDATE_BLUE_COIN);
     }
+}
 }
 
 void bhv_blue_coin_sliding_jumping_init(void) {
@@ -146,6 +150,7 @@ void bhv_blue_coin_sliding_jumping_init(void) {
     o->oBuoyancy = 1.5;
 
     set_object_hitbox(o, &sMovingBlueCoinHitbox);
+    o->oBingoId = get_unique_id(BINGO_UPDATE_BLUE_COIN, o->oPosX, o->oPosY, o->oPosZ);
 }
 
 void func_802E540C(void) {
@@ -218,6 +223,9 @@ void bhv_blue_coin_sliding_loop(void) {
     {
         CoinCollected();
         o->oInteractStatus = 0;
+        if (is_new_kill(BINGO_UPDATE_BLUE_COIN, o->oBingoId)) {
+            bingo_update(BINGO_UPDATE_BLUE_COIN);
+        }
     }
 }
 
@@ -263,5 +271,8 @@ void bhv_blue_coin_jumping_loop(void) {
     {
         CoinCollected();
         o->oInteractStatus = 0;
+        if (is_new_kill(BINGO_UPDATE_BLUE_COIN, o->oBingoId)) {
+            bingo_update(BINGO_UPDATE_BLUE_COIN);
+        }
     }
 }
