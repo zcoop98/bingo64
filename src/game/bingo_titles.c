@@ -139,6 +139,7 @@ void get_objective_title(struct BingoObjective *objective) {
         case BINGO_OBJECTIVE_SIGNPOST:
         case BINGO_OBJECTIVE_POLES:
         case BINGO_OBJECTIVE_RED_COIN:
+        case BINGO_OBJECTIVE_BLUE_COIN:
         case BINGO_OBJECTIVE_AMPS:
         case BINGO_OBJECTIVE_KILL_GOOMBAS:
         case BINGO_OBJECTIVE_KILL_BOBOMBS:
