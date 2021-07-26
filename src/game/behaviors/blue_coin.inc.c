@@ -23,6 +23,8 @@ void bhv_hidden_blue_coin_loop(void) {
                 o->oAction++;
             }
 
+            o->oBingoId = get_unique_id(BINGO_UPDATE_BLUE_COIN, o->oPosX, o->oPosY, o->oPosZ);
+
             break;
         case HIDDEN_BLUE_COIN_ACT_WAITING:
             // Wait until the blue coin switch starts ticking to activate.
@@ -41,6 +43,11 @@ void bhv_hidden_blue_coin_loop(void) {
             // Delete the coin once collected
             if (o->oInteractStatus & INT_STATUS_INTERACTED) {
                 spawn_object(o, MODEL_SPARKLES, bhvGoldenCoinSparkles);
+
+                if (is_new_kill(BINGO_UPDATE_BLUE_COIN, o->oBingoId)) {
+                    bingo_update(BINGO_UPDATE_BLUE_COIN);
+                }
+
                 mark_object_for_deletion(o);
             }
 
