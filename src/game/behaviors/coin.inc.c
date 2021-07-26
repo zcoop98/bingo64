@@ -18,6 +18,13 @@ s16 D_8032F2A4[][2] = { { 0, -150 },  { 0, -50 },   { 0, 50 },   { 0, 150 },
 s32 bhv_coin_sparkles_init(void) {
     if (o->oInteractStatus & INT_STATUS_INTERACTED && !(o->oInteractStatus & INTERACT_TEXT)) {
         spawn_object(o, MODEL_SPARKLES, bhvGoldenCoinSparkles);
+
+        // If object has a coin value set to 5, then it's a blue coin; check if unique and score.
+        // We can't check based on the model since Boo blue coin drops trigger this function,
+        // and we don't want the coin drop to count as a pickup for bingo.
+        if (o->oDamageOrCoinValue == 5 && is_new_kill(BINGO_UPDATE_BLUE_COIN, o->oBingoId))
+            bingo_update(BINGO_UPDATE_BLUE_COIN);
+
         mark_object_for_deletion(o);
         return 1;
     }
@@ -55,6 +62,9 @@ void bhv_coin_init(void) {
     obj_set_behavior(bhvYellowCoin);
     set_object_hitbox(o, &sYellowCoinHitbox);
     obj_become_intangible();
+    // Check if model is MODEL_BLUE_COIN, if so add to blue coin tracking
+    if (obj_has_model(MODEL_BLUE_COIN))
+        o->oBingoId = get_unique_id(BINGO_UPDATE_BLUE_COIN, o->oPosX, o->oPosY, o->oPosZ);
 }
 
 void bhv_coin_loop(void) {
