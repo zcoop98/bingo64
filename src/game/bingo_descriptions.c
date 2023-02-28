@@ -468,6 +468,8 @@ void get_collectable_objective_desc(struct BingoObjective *obj, char *desc) {
             strcpy(verb, "Break");
             break;  // hah!
         case BINGO_OBJECTIVE_RED_COIN:
+            strcpy(verb, "Collect");
+            break;
         case BINGO_OBJECTIVE_STARS_MULTIPLE_LEVELS:
             strcpy(verb, "Collect one star in");
             break;
